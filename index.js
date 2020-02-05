@@ -6,6 +6,7 @@ const {config,engine} = require('express-edge');
 
 //configure edge
 config({cache:process.env.NODE_ENV == 'production'})
+var port = process.env.PORT || 8080;
 app.use(engine);
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}));
@@ -32,6 +33,6 @@ app.get("/projects",(req,res)=>{
 //const r = require('./router/routes.js')(app);
 
 //start the server
-app.listen(5000,()=>{
+app.listen(port,()=>{
   console.log("Server running your site at 5000")
 });
